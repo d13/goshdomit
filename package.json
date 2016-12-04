@@ -1,0 +1,25 @@
+{
+  "name": "goshdomit",
+  "version": "1.0.0",
+  "description": "A wrapper for some DOM stuff",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "rimraf": "^2.5.4",
+    "rollup": "^0.36.4"
+  },
+  "scripts": {
+    "prepublish": "rimraf build && mkdir build && rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d13/goshdomit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/d13/goshdomit/issues"
+  },
+  "homepage": "https://github.com/d13/goshdomit#readme"
+}
