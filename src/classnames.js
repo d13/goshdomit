@@ -1,3 +1,5 @@
+import * as Elements from './elements';
+
 let hasClass, addClassCore, removeClassCore;
 if (!('classList' in document.documentElement)) {
     hasClass = function(el, name) {
@@ -34,20 +36,6 @@ if (!('classList' in document.documentElement)) {
     };
 }
 
-function normalizeEls(els) {
-    if (Array.isArray(els)) {
-        return els;
-    }
-
-    //FIXME: lame nodeList detect
-    if (els.length) {
-        return Array.prototype.slice.call(els);
-    }
-
-    // assuming single dom element
-    return [ els ];
-}
-
 function normalizeClasses(classes) {
     if (Array.isArray(classes)) {
         return classes;
@@ -63,9 +51,8 @@ function normalizeClasses(classes) {
 function forEachElementAndClass(els, classes, fn) {
     if (!fn) return;
 
-    let elList = normalizeEls(els);
     let classList = normalizeClasses(classes);
-    elList.forEach(el => {
+    Elements.toArray(els).forEach(el => {
         classList.forEach(cls => {
             fn.call(this, el, cls);
         });

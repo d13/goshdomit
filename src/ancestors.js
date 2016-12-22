@@ -1,7 +1,7 @@
 export function findParent(element, lookupFn) {
     let parentEl = element.parentElement;
-    if (!parentEl) return false;
-    if (lookupFn(parentEl)) return true;
+    if (!parentEl) return;
+    if (lookupFn(parentEl)) return parentEl;
 
     return findParent(parentEl, lookupFn);
 }
@@ -21,14 +21,12 @@ export function findParentAll(element, lookupFn) {
     return matches;
 }
 
+let matchSelector = el => el.matches(selector);
+
 export function queryParent(element, selector) {
-    return findParent(element, el => {
-        return el.matches(selector);
-    });
+    return findParent(element, matchSelector);
 }
 
 export function queryParentAll(element, selector) {
-    return findParentAll(element, el => {
-        return el.matches(selector);
-    });
+    return findParentAll(element, matchSelector);
 }
