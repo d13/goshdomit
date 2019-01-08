@@ -41,11 +41,7 @@ function normalizeClasses(classes) {
         return classes;
     }
 
-    if (classes.indexOf(' ') > -1) {
-        return classes.split(' ');
-    }
-
-    return [ classes ];
+    return classes.split(' ');
 }
 
 function forEachElementAndClass(els, classes, fn) {
